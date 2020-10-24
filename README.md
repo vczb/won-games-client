@@ -1,8 +1,4 @@
-## Sobre
-
-Boilerplate foi desenvolvido durante o curso de [React Avançado](https://reactavancado.com.br/) 
-ministrado por [Willian Justen](https://github.com/willianjusten) e tem o objetivo de servir como
-estrutura reutilizável pré-configurada para futuros projetos.
+# Won Games Client
 
 ## Stacks
 
