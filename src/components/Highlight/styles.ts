@@ -9,6 +9,8 @@ export const Wrapper = styled.div<wrapperProps>`
     position: relative;
     height: 23rem;
     display: grid;
+    grid-template-areas: 'floatimage content';
+    grid-template-columns: 1.3fr 2fr;
     background-image: url(${backgroundImage});
     background-position: center center;
     background-size: cover;
@@ -31,10 +33,23 @@ export const Content = styled.div`
     z-index: ${theme.layers.base};
     text-align: right;
     padding: ${theme.spacings.xsmall};
-
+    grid-area: content;
     ${media.greaterThan('medium')`
       align-self: end;
       padding: ${theme.spacings.large};
+    `}
+  `}
+`
+
+export const FloatImage = styled.img`
+  ${({ theme }) => css`
+    z-index: ${theme.layers.base};
+    max-height: 23rem;
+    max-width: 100%;
+    grid-area: floatimage;
+    align-self: end;
+    ${media.greaterThan('medium')`
+      max-height: 32rem;
     `}
   `}
 `
