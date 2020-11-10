@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameCardSlider /> should render the reading 1`] = `
+<div
+  class=""
+>
+  <h1>
+    GameCardSlider
+  </h1>
+</div>
+`;
