@@ -6,10 +6,10 @@ export default {
   component: MediaMatch
 } as Meta
 
-export const Desktop: Story = (args) => (
+export const Desktop: Story = () => (
   <MediaMatch greaterThan="medium">Only on Desktop</MediaMatch>
 )
-export const Mobile: Story = (args) => (
+export const Mobile: Story = () => (
   <MediaMatch lessThan="medium">Only on Mobile</MediaMatch>
 )
 

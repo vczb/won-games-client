@@ -3,7 +3,6 @@ import { Settings } from 'react-slick'
 import styled from 'styled-components'
 
 import Slider from '.'
-import { Slideshow } from '@styled-icons/material-outlined'
 
 export default {
   title: 'Slider',
