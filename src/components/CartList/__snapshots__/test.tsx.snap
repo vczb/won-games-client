@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CardList /> should render the card list correctly 1`] = `
+exports[`<CartList /> should render the card list correctly 1`] = `
 .c1 {
   padding: 2.4rem;
   border-bottom: 0.1rem solid #EAEAEA;
@@ -190,11 +190,11 @@ exports[`<CardList /> should render the card list correctly 1`] = `
   <div
     class="c7"
   >
-    Total 
+    Total
     <span
       class="c8"
     >
-       
+
       R$ 330,00
     </span>
   </div>

@@ -2,7 +2,7 @@ import Cart, { CartProps } from 'templates/Cart'
 
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
-import itemsMock from 'components/CardList/mock'
+import itemsMock from 'components/CartList/mock'
 import cardsMock from 'components/PaymentOptions/mock'
 
 export default function CartPage(props: CartProps) {
@@ -12,7 +12,7 @@ export default function CartPage(props: CartProps) {
 export async function getServerSideProps() {
   return {
     props: {
-      items: [],
+      items: itemsMock,
       total: 'R$ 430',
       cards: cardsMock,
       recommendedGames: gamesMock,

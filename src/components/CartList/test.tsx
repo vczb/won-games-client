@@ -3,12 +3,12 @@ import { screen } from '@testing-library/react'
 import mockItems from './mock'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import CardList from '.'
+import CartList from '.'
 
-describe('<CardList />', () => {
+describe('<CartList />', () => {
   it('should render the card list correctly', () => {
     const { container } = renderWithTheme(
-      <CardList items={mockItems} total="R$ 330,00" />
+      <CartList items={mockItems} total="R$ 330,00" />
     )
 
     expect(screen.getAllByRole('heading')).toHaveLength(2)

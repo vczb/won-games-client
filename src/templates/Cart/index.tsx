@@ -2,11 +2,11 @@ import Heading from 'components/Heading'
 import { Container } from 'components/Container'
 import Base from 'templates/Base'
 import Showcase from 'components/Showcase'
-import CardList from 'components/CardList'
+import CartList from 'components/CartList'
 import { Divider } from 'components/Divider'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
-import { CardListProps } from 'components/CardList'
+import { CartListProps } from 'components/CartList'
 import PaymentOptions, { PaymentOptionsProps } from 'components/PaymentOptions'
 
 import * as S from './styles'
@@ -15,7 +15,7 @@ import Empty from 'components/Empty'
 export type CartProps = {
   recommendedGames: GameCardProps[]
   recommendedHighlight: HighlightProps
-} & CardListProps &
+} & CartListProps &
   Pick<PaymentOptionsProps, 'cards'>
 
 const Cart = ({
@@ -34,7 +34,7 @@ const Cart = ({
         </Heading>
         {items.length ? (
           <S.Content>
-            <CardList items={items} total={total} />
+            <CartList items={items} total={total} />
             <PaymentOptions cards={cards} handlePayment={handlePayment} />
           </S.Content>
         ) : (
