@@ -113,11 +113,11 @@ exports[`<GameInfo /> should render game informations 1`] = `
   justify-content: center;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
+  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   border: 0;
-  border-radius: 0.4rem;
-  padding: 1.6rem;
-  outline: none;
   cursor: pointer;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
   -webkit-text-decoration: none;
   text-decoration: none;
   height: 5rem;
@@ -152,11 +152,11 @@ exports[`<GameInfo /> should render game informations 1`] = `
   justify-content: center;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
+  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   border: 0;
-  border-radius: 0.4rem;
-  padding: 1.6rem;
-  outline: none;
   cursor: pointer;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
   -webkit-text-decoration: none;
   text-decoration: none;
   height: 5rem;
@@ -170,16 +170,16 @@ exports[`<GameInfo /> should render game informations 1`] = `
   background: none;
 }
 
-.c8:hover {
-  color: #e20e8d;
-}
-
 .c8 svg {
   width: 1.5rem;
 }
 
 .c8 svg + span {
   margin-left: 0.8rem;
+}
+
+.c8:hover {
+  color: #e20e8d;
 }
 
 .c7 {
@@ -297,4 +297,4 @@ exports[`<GameInfo /> should render game informations 1`] = `
     </button>
   </div>
 </div>
-`
+`;
