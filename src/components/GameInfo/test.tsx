@@ -5,7 +5,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 const props = {
   title: 'Game Title',
   description: 'Game Description',
-  price: '200,00'
+  price: 200
 }
 
 describe('<GameInfo />', () => {
