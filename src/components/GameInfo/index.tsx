@@ -6,6 +6,7 @@ import {
   AddShoppingCart,
   FavoriteBorder
 } from '@styled-icons/material-outlined'
+import formatPrice from 'utils/formatPrice'
 
 export type GameInfoProps = {
   title: string
@@ -18,12 +19,7 @@ const GameInfo = ({ title, description, price }: GameInfoProps) => (
     <Heading lineBottom color="black">
       {title}
     </Heading>
-    <Ribbon color="secondary">
-      {new Intl.NumberFormat('en', {
-        style: 'currency',
-        currency: 'USD'
-      }).format(price)}
-    </Ribbon>
+    <Ribbon color="secondary">{formatPrice(price)}</Ribbon>
     <S.Description>{description}</S.Description>
     <S.ButtonsWrapper>
       <Button icon={<AddShoppingCart />} size="large">
