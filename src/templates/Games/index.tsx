@@ -14,10 +14,9 @@ export type GamesTemplateProps = {
 }
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
-  const { data, loading } = useQuery<QueryGames, QueryGamesVariables>(
-    QUERY_GAMES,
-    { variables: { limit: 15 } }
-  )
+  const { data } = useQuery<QueryGames, QueryGamesVariables>(QUERY_GAMES, {
+    variables: { limit: 15 }
+  })
 
   const handleFilter = () => {
     return
@@ -29,26 +28,24 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
     <Base>
       <S.Main>
         <ExploreSidebar items={filterItems} onFilter={handleFilter} />
-        {!loading && (
-          <section>
-            <Grid>
-              {data?.games.map((game) => (
-                <GameCard
-                  key={game.slug}
-                  title={game.name}
-                  slug={game.slug}
-                  developer={game.developers[0].name}
-                  img={`http://localhost:1337${game.cover!.url}`}
-                  price={game.price}
-                />
-              ))}
-            </Grid>
-            <S.ShowMore role="button" onClick={handleShowMore}>
-              <p>Show More</p>
-              <ArrowDown size={35} />
-            </S.ShowMore>
-          </section>
-        )}
+        <section>
+          <Grid>
+            {data?.games.map((game) => (
+              <GameCard
+                key={game.slug}
+                title={game.name}
+                slug={game.slug}
+                developer={game.developers[0].name}
+                img={`http://localhost:1337${game.cover!.url}`}
+                price={game.price}
+              />
+            ))}
+          </Grid>
+          <S.ShowMore role="button" onClick={handleShowMore}>
+            <p>Show More</p>
+            <ArrowDown size={35} />
+          </S.ShowMore>
+        </section>
       </S.Main>
     </Base>
   )
