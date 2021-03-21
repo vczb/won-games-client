@@ -12,7 +12,8 @@ export default {
     }
   },
   args: {
-    items
+    items,
+    onFilter: () => console.log('filter')
   }
 } as Meta
 export const Default: Story<ExploreSidebarProps> = (args) => (
