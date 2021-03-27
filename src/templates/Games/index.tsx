@@ -17,7 +17,8 @@ export type GamesTemplateProps = {
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   const { push, query } = useRouter()
 
-  const { data, fetchMore } = useQueryGames({
+  const { data, loading, fetchMore } = useQueryGames({
+    notifyOnNetworkStatusChange: true,
     variables: {
       limit: 15,
       where: parseQueryStringToWhere({ queryString: query, filterItems }),
@@ -63,9 +64,18 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
                   />
                 ))}
               </Grid>
-              <S.ShowMore role="button" onClick={handleShowMore}>
-                <p>Show More</p>
-                <ArrowDown size={35} />
+              <S.ShowMore>
+                {loading ? (
+                  <S.ShowMoreLoading
+                    src="img/dots.svg"
+                    alt="loading more games..."
+                  />
+                ) : (
+                  <S.ShowMoreButton role="button" onClick={handleShowMore}>
+                    <p>Show More</p>
+                    <ArrowDown size={35} />
+                  </S.ShowMoreButton>
+                )}
               </S.ShowMore>
             </>
           ) : (
