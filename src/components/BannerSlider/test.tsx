@@ -1,9 +1,8 @@
 import 'match-media-mock'
 
-import { screen } from '@testing-library/react'
+import { screen, render } from 'utils/testUtils'
 
 import BannerSlider from '.'
-import { renderWithTheme } from 'utils/tests/helpers'
 
 const items = [
   {
@@ -25,13 +24,13 @@ const items = [
 
 describe('<BannerSlider />', () => {
   it('should render vertical slider', () => {
-    const { container } = renderWithTheme(<BannerSlider items={items} />)
+    const { container } = render(<BannerSlider items={items} />)
 
     expect(container.querySelector('.slick-vertical')).toBeInTheDocument()
   })
 
   it('should render whit 1 active item', () => {
-    const { container } = renderWithTheme(<BannerSlider items={items} />)
+    const { container } = render(<BannerSlider items={items} />)
 
     expect(container.querySelectorAll('.slick-slide')).toHaveLength(2)
     expect(container.querySelectorAll('li.slick-active')).toHaveLength(1)
@@ -46,13 +45,13 @@ describe('<BannerSlider />', () => {
   })
 
   it('should render the dots', () => {
-    const { container } = renderWithTheme(<BannerSlider items={items} />)
+    const { container } = render(<BannerSlider items={items} />)
 
     expect(container.querySelector('ul.slick-dots')).toBeInTheDocument()
   })
 
   it('should match to snapshot', () => {
-    const { container } = renderWithTheme(<BannerSlider items={items} />)
+    const { container } = render(<BannerSlider items={items} />)
     expect(container.firstChild).toMatchSnapshot()
   })
 })

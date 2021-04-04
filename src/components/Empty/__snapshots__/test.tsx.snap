@@ -93,7 +93,6 @@ exports[`<Empty /> should render correctrly 1`] = `
         </span>
       </a>
     </div>
-     
   </div>
 </body>
 `;

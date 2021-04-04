@@ -1,14 +1,13 @@
+import { render, screen, waitFor } from 'utils/testUtils'
 import userEvent from '@testing-library/user-event'
 
-import { screen, waitFor } from '@testing-library/react'
-
 import Checkbox from '.'
-import { renderWithTheme } from 'utils/tests/helpers'
+
 import theme from 'styles/theme'
 
 describe('<Checkbox />', () => {
   it('should render with label', () => {
-    renderWithTheme(<Checkbox label="checkbox label" labelFor="check" />)
+    render(<Checkbox label="checkbox label" labelFor="check" />)
 
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
     expect(screen.getByLabelText(/checkbox label/i)).toBeInTheDocument()
@@ -16,13 +15,13 @@ describe('<Checkbox />', () => {
   })
 
   it('should render without label', () => {
-    renderWithTheme(<Checkbox />)
+    render(<Checkbox />)
 
     expect(screen.queryByLabelText('checkbox')).not.toBeInTheDocument()
   })
 
   it('should render with black label', () => {
-    renderWithTheme(
+    render(
       <Checkbox label="checkbox label" labelFor="check" labelColor="black" />
     )
 
@@ -34,7 +33,7 @@ describe('<Checkbox />', () => {
   it('should dispatch onCheck when status changes', async () => {
     const onCheck = jest.fn()
 
-    renderWithTheme(<Checkbox label="Checkbox" onCheck={onCheck} />)
+    render(<Checkbox label="Checkbox" onCheck={onCheck} />)
 
     expect(onCheck).not.toHaveBeenCalled()
 
@@ -49,7 +48,7 @@ describe('<Checkbox />', () => {
   it('should dispatch onCheck when status changes', async () => {
     const onCheck = jest.fn()
 
-    renderWithTheme(<Checkbox label="Checkbox" onCheck={onCheck} isChecked />)
+    render(<Checkbox label="Checkbox" onCheck={onCheck} isChecked />)
 
     expect(onCheck).not.toHaveBeenCalled()
 
@@ -62,7 +61,7 @@ describe('<Checkbox />', () => {
   })
 
   it('should render be accessible with tab', () => {
-    renderWithTheme(<Checkbox label="checkbox" labelFor="check" />)
+    render(<Checkbox label="checkbox" labelFor="check" />)
 
     expect(document.body).toHaveFocus()
 
