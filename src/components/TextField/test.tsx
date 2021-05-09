@@ -40,7 +40,7 @@ describe('<TextField />', () => {
 
   it('Changes its value when typing', async () => {
     const onInput = jest.fn()
-    render(<TextField onInput={onInput} label="Label" name="Label" />)
+    render(<TextField onInputChange={onInput} label="Label" name="Label" />)
 
     const input = screen.getByRole('textbox')
     const text = 'This is my new text'
@@ -55,7 +55,9 @@ describe('<TextField />', () => {
 
   it('Does not changes its value when disabled', async () => {
     const onInput = jest.fn()
-    render(<TextField onInput={onInput} label="Label" name="Label" disabled />)
+    render(
+      <TextField onInputChange={onInput} label="Label" name="Label" disabled />
+    )
 
     const input = screen.getByRole('textbox')
     expect(input).toBeDisabled()
