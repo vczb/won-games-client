@@ -38,6 +38,12 @@ export enum ENUM_GAME_RATING {
   pegi7 = "pegi7",
 }
 
+export interface UsersPermissionsRegisterInput {
+  username: string;
+  email: string;
+  password: string;
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
