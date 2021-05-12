@@ -3,6 +3,17 @@ import { screen, render } from 'utils/testUtils'
 
 import FormSignUp from '.'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+const push = jest.fn()
+
+useRouter.mockImplementation(() => ({
+  push,
+  query: '',
+  asPath: '',
+  route: '/'
+}))
+
 describe('<FormSignUp />', () => {
   it('should render the form', () => {
     const { container } = render(
