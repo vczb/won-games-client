@@ -98,6 +98,12 @@ exports[`<GameInfo /> should render game informations 1`] = `
   border-bottom: 0.5rem solid #F231A5;
 }
 
+.c7 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
 .c6 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -123,6 +129,10 @@ exports[`<GameInfo /> should render game informations 1`] = `
   height: 5rem;
   font-size: 1.6rem;
   padding: 0.8rem 4.8rem;
+}
+
+.c6:focus {
+  outline: 1px dashed;
 }
 
 .c6:hover {
@@ -166,6 +176,10 @@ exports[`<GameInfo /> should render game informations 1`] = `
   color: #F231A5;
 }
 
+.c8:focus {
+  outline: 1px dashed;
+}
+
 .c8:hover {
   background: none;
 }
@@ -180,12 +194,6 @@ exports[`<GameInfo /> should render game informations 1`] = `
 
 .c8:hover {
   color: #e20e8d;
-}
-
-.c7 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
 }
 
 @media (min-width:768px) {
@@ -277,6 +285,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
     >
       <svg
         aria-hidden="true"
+        aria-label="Add to Wishlist"
         class="c7"
         fill="currentColor"
         focusable="false"
@@ -292,7 +301,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
         />
       </svg>
       <span>
-        Wishlist
+        Add to Wishlist
       </span>
     </button>
   </div>

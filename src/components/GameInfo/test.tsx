@@ -1,3 +1,4 @@
+import 'session.mock'
 import { screen, render } from 'utils/testUtils'
 import GameInfo from '.'
 
@@ -29,7 +30,7 @@ describe('<GameInfo />', () => {
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('button', { name: /wishlist/i })
+      screen.getByRole('button', { name: /add to wishlist/i })
     ).toBeInTheDocument()
   })
 })
