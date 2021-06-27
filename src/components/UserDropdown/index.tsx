@@ -30,7 +30,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
           <AccountCircle /> <span>My profile</span>
         </S.Link>
       </Link>
-      <Link href="profile/wishlist" passHref>
+      <Link href="wishlist" passHref>
         <S.Link>
           <FavoriteBorder /> <span>Wishlist</span>
         </S.Link>
