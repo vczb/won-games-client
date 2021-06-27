@@ -91,15 +91,13 @@ describe('useWishlist', () => {
 
     await waitForNextUpdate()
 
-
     act(() => {
       result.current.addToWishlist('3')
     })
 
-    await waitFor(()=>{
+    await waitFor(() => {
       expect(result.current.items).toStrictEqual(wishlistItems)
     })
-
   })
 
   it('should remove item from wishlist', async () => {
@@ -115,14 +113,12 @@ describe('useWishlist', () => {
 
     await waitForNextUpdate()
 
-
     act(() => {
       result.current.removeFromWishlist('1')
     })
 
-    await waitFor(()=>{
+    await waitFor(() => {
       expect(result.current.items).toStrictEqual([wishlistItems[1]])
     })
-
   })
 })

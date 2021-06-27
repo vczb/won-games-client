@@ -87,7 +87,6 @@ export const updateWishlistMock = {
   }
 }
 
-
 export const removeWishlistMock = {
   request: {
     query: MUTATION_UPDATE_WISHLIST,
@@ -114,7 +113,6 @@ export const removeWishlistMock = {
     }
   }
 }
-
 
 export const wishlistItems = [
   {
