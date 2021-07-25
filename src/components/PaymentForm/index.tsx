@@ -31,7 +31,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
         if (data?.freeGames) {
           setFreeGames(true)
-          console.log(data?.freeGames)
+
           return
         }
 
@@ -41,7 +41,6 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         }
 
         setClientSecret(data.client_secret)
-        console.log(data.client_secret)
       }
     }
 
@@ -59,17 +58,21 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         <Heading color="black" size="small" lineBottom>
           Payment
         </Heading>
-        <CardElement
-          options={{
-            hidePostalCode: true,
-            style: {
-              base: {
-                fontSize: '16px'
+        {freeGames ? (
+          <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames>
+        ) : (
+          <CardElement
+            options={{
+              hidePostalCode: true,
+              style: {
+                base: {
+                  fontSize: '16px'
+                }
               }
-            }
-          }}
-          onChange={handleChange}
-        />
+            }}
+            onChange={handleChange}
+          />
+        )}
         {error && (
           <S.Error>
             <ErrorOutline size={20} />
@@ -84,7 +87,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         <Button
           fullWidth
           icon={<ShoppingCart />}
-          disabled={disabled || !!error}
+          disabled={!freeGames && (disabled || !!error)}
         >
           Buy now
         </Button>
