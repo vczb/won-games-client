@@ -31,7 +31,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
         if (data?.freeGames) {
           setFreeGames(true)
-          console.log({ freeGames })
+          console.log(data?.freeGames)
           return
         }
 
@@ -41,7 +41,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         }
 
         setClientSecret(data.client_secret)
-        console.log({ clientSecret })
+        console.log(data.client_secret)
       }
     }
 
