@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
 import { ErrorOutline, ShoppingCart } from '@styled-icons/material-outlined'
+import { useRouter } from 'next/router'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
@@ -19,7 +20,8 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
   const { items } = useCart()
   const stripe = useStripe()
   const elements = useElements()
-  const [error, setError] = useState<string | null>(null)
+  const { push } = useRouter()
+  const [error, setError] = useState<string | null>('')
   const [loading, setLoading] = useState(false)
   const [disabled, setDisabled] = useState(true)
   const [clientSecret, setClientSecret] = useState<string>('')
@@ -60,6 +62,11 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     event.preventDefault()
     setLoading(true)
 
+    if (freeGames) {
+      push('/success')
+      return
+    }
+
     const payload = await stripe!.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements!.getElement(CardElement)!
@@ -72,8 +79,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     } else {
       setError(null)
       setLoading(false)
-
-      console.log('asihaush')
+      push('/success')
     }
   }
 
