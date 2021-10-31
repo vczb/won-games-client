@@ -51,6 +51,7 @@ describe('<PaymentForm />', () => {
 
   beforeEach(() => {
     session = {
+      id: '123',
       jwt: 'token',
       user: {
         email: 'won@games.com'

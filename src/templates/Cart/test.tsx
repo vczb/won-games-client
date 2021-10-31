@@ -7,6 +7,7 @@ import highlightMock from 'components/Highlight/mock'
 import Cart from '.'
 
 const props = {
+  session: { id: '1', jwt: '123' },
   recommendedHighlight: highlightMock,
   recommendedGames: gamesMock,
   recommendedTitle: 'You may like these games'

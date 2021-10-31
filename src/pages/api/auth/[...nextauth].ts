@@ -39,7 +39,7 @@ const options = {
   callbacks: {
     session: async (session: Session, user: User) => {
       session.jwt = user.jwt
-      session.id = user.id
+      session.id = String(user?.id || '')
 
       return Promise.resolve(session)
     },

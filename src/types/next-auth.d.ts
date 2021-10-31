@@ -27,7 +27,7 @@ declare module 'next-auth/client' {
 
 declare module 'next-auth' {
   interface Session {
-    id?: string
+    id: string
   }
 }
 

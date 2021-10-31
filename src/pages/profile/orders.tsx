@@ -21,12 +21,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const apolloClient = initializeApollo(null, session)
 
-  const sessionId: string = session?.id || ''
-
   const { data } = await apolloClient.query<QueryOrders, QueryOrdersVariables>({
     query: QUERY_ORDERS,
     variables: {
-      identifier: sessionId
+      identifier: session!.id
     }
   })
 
