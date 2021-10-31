@@ -1,8 +1,10 @@
-import 'next-auth'
+import NextAuth from 'next-auth'
 import { GenericObject } from 'next-auth/_utils'
 
 declare module 'next-auth/client' {
+
   export * from 'next-auth/client'
+
 
   interface SignInResponse {
     error: string | undefined
@@ -22,3 +24,11 @@ declare module 'next-auth/client' {
 
   export const signIn: typeof signin
 }
+
+declare module 'next-auth' {
+  interface Session {
+    id: string
+  }
+}
+
+

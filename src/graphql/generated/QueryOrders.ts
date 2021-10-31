@@ -41,5 +41,5 @@ export interface QueryOrders {
 }
 
 export interface QueryOrdersVariables {
-  identifier: string;
+  identifier?: string;
 }
