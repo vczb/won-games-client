@@ -9,12 +9,15 @@ import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown'
 
 import Dropdown from 'components/Dropdown'
 import * as S from './styles'
+import { useRouter } from 'next/router'
 
 export type UserDropdownProps = {
   username: string
 }
 
-const UserDropdown = ({ username }: UserDropdownProps) => (
+const UserDropdown = ({ username }: UserDropdownProps) => {
+  const { push } = useRouter()
+  return (
   <Dropdown
     title={
       <>
@@ -35,11 +38,19 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
           <FavoriteBorder /> <span>Wishlist</span>
         </S.Link>
       </Link>
-      <S.Link role="button" onClick={() => signOut()}>
+      <S.Link role="button"
+        title="Sign out"
+        onClick={async () => {
+          const data = await signOut({
+            redirect: false,
+            callbackUrl: '/'
+          })
+          push(data.url)
+        }}>
         <ExitToApp /> <span>Sign out</span>
       </S.Link>
     </S.Nav>
   </Dropdown>
-)
+)}
 
 export default UserDropdown
