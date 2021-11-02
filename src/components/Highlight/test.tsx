@@ -26,18 +26,12 @@ describe('<Highlight />', () => {
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument()
   })
 
-  it('it sould render background image', () => {
-    const { container } = render(<Highlight {...props} />)
-
-    expect(container.firstChild).toHaveStyle({
-      backgroundImage: `url(${props.backgroundImage})`
-    })
-  })
-
   it('it sould render float image', () => {
     render(<Highlight {...props} floatImage="/float-image-png" />)
 
-    expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
+    const img = screen.getByTestId('float-image-wrapper').firstChild
+
+    expect(img).toHaveAttribute(
       'src',
       '/float-image-png'
     )

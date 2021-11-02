@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import * as S from './styles'
 import Button from 'components/Button'
 
@@ -20,8 +21,16 @@ const Highlight = ({
   title,
   subtitle
 }: HighlightProps) => (
-  <S.Wrapper alignment={alignment} backgroundImage={backgroundImage}>
-    {!!floatImage && <S.FloatImage src={floatImage} alt={title}></S.FloatImage>}
+  <S.Wrapper alignment={alignment} >
+    <Image src={backgroundImage} alt={title}  layout="fill"  />
+
+    {!!floatImage &&
+      (
+        <S.FloatImageWrapper data-testid="float-image-wrapper" >
+          <Image src={floatImage} alt={title} width={400} height={300} />
+        </S.FloatImageWrapper>
+      )
+    }
     <S.Content>
       <S.Title>{title}</S.Title>
       <S.Subtitle>{subtitle}</S.Subtitle>
