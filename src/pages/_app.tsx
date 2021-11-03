@@ -1,3 +1,5 @@
+import { DefaultSeo } from 'next-seo'
+import SEO from '../../next-seo.config'
 import NextNprogress from 'nextjs-progressbar'
 import { Provider as AuthProvider } from 'next-auth/client'
 import { AppProps } from 'next/app'
@@ -28,6 +30,7 @@ function App({ Component, pageProps }: AppProps) {
                   content="The best Game Stores in the world!"
                 />
               </Head>
+              <DefaultSeo {...SEO} />
               <GlobalStyles />
               <NextNprogress
                 color="#F231A5"
