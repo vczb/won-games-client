@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo'
 import Base from 'templates/Base'
 import GameInfo, { GameInfoProps } from 'components/GameInfo'
 import Gallery, { GalleryImageProps } from 'components/Gallery'
@@ -11,6 +12,7 @@ import Showcase from 'components/Showcase'
 import { Divider } from 'components/Divider'
 
 export type GameTemplateProps = {
+  slug: string
   cover: string
   gameInfo: GameInfoProps
   gallery?: GalleryImageProps[]
@@ -24,6 +26,7 @@ export type GameTemplateProps = {
 }
 
 const Game = ({
+  slug,
   recommendedTitle,
   cover,
   gameInfo,
@@ -36,8 +39,23 @@ const Game = ({
   recommendedGames
 }: GameTemplateProps) => (
   <Base>
+  <NextSeo
+      title={`${gameInfo.title} - Won Games`}
+      description={gameInfo.description}
+      canonical={`https://wongames.vczb.com.br/game/${slug}`}
+      openGraph={{
+        url: `https://wongames.vczb.com.br/game/${slug}`,
+        title: `${gameInfo.title} - Won Games`,
+        description: gameInfo.description,
+        images: [
+          {
+            url: cover,
+            alt: `${gameInfo.title}`
+          }
+        ]
+      }}
+    />
     <S.Cover src={cover} role="image" aria-label="cover" />
-
     <S.Main>
       <S.SectionGameInfo>
         <GameInfo {...gameInfo} />
