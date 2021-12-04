@@ -27,7 +27,6 @@
 //Add testing library commands
 import '@testing-library/cypress/add-commands';
 
-
 Cypress.Commands.add('shouldRenderBanner', () => {
   cy.get('.slick-slider').within(() => {
     cy.findByRole('heading', { name: /cyberpunk 2077/i })
@@ -41,3 +40,16 @@ Cypress.Commands.add('shouldRenderBanner', () => {
   })
 })
 
+Cypress.Commands.add('shouldRenderShowcase', ({ name, hightlight = false }: ShowcaseAttributes) => {
+  cy.get(`[data-cy="${name}"]`).within(() => {
+    cy.findByRole('heading', { name }).should('exist')
+
+    cy.get(`[data-cy="highlight"]`).should(hightlight ? 'exist' : 'not.exist')
+
+    if (hightlight) {
+      cy.get(`[data-cy="highlight"]`).within(() => {
+        cy.findByRole('link').should('have.attr', 'href')
+      })
+    }
+  })
+})

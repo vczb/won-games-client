@@ -1,6 +1,11 @@
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
 
+type ShowcaseAttributes = {
+  name: string
+  highlight?: boolean
+}
+
 declare namespace Cypress {
   interface Chainable {
     /*
@@ -8,5 +13,6 @@ declare namespace Cypress {
      * @example cy.google()
      */
     shouldRenderBanner(): Chainable<Element>
+    shouldRenderShowcase(): Chainable<Element>
   }
 }
