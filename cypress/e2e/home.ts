@@ -7,6 +7,13 @@ describe('Home page', () => {
     cy.get('.slick-slider').within(() => {
         cy.findByRole('heading', { name: /cyberpunk 2077/i })
         cy.findByRole('link', { name: /buy now/i })
+
+        cy.get('.slick-dots > :nth-child(2) > button').click()
+        cy.wait(500)
+
+        cy.findByRole('heading', { name: /defy death/i })
+        cy.findByRole('link', { name: /buy now/i })
+
     })
   })
 
