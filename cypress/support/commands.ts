@@ -24,10 +24,11 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-//Add testing library commands
+// Add Testing Library Commands
 import '@testing-library/cypress/add-commands';
-
 import { User } from './generate';
+
+Cypress.Commands.add('google', () => cy.visit('https://google.com'))
 
 Cypress.Commands.add('getByDataCy', (selector, ...args) => {
   return cy.get(`[data-cy="${selector}"]`, ...args)
@@ -41,6 +42,13 @@ Cypress.Commands.add('signUp', (user: User) => {
   cy.findByRole('button', { name: /sign up now/i }).click()
 })
 
+Cypress.Commands.add('signIn', (email = 'e2e@wongames.com', password = '123456') => {
+  cy.url().should('eq', `${Cypress.config().baseUrl}/`)
+  cy.findAllByPlaceholderText(/email/i).type(email)
+  cy.findAllByPlaceholderText(/password/i).type(password)
+  cy.findByRole('button', { name: /sign in now/i }).click()
+})
+
 
 Cypress.Commands.add('shouldRenderBanner', () => {
   cy.get('.slick-slider').within(() => {
@@ -50,8 +58,14 @@ Cypress.Commands.add('shouldRenderBanner', () => {
     cy.get('.slick-dots > :nth-child(2) > button').click()
     cy.wait(500)
 
-    cy.findByRole('heading', { name: /defy death/i })
+    cy.findByRole('heading', { name: /horizon zero dawn/i })
     cy.findByRole('link', { name: /buy now/i })
+
+    cy.get('.slick-dots > :nth-child(3) > button').click()
+    cy.wait(500)
+
+    cy.findByRole('heading', { name: /huge promotion!/i })
+    cy.findByRole('link', { name: /browse games/i })
   })
 })
 
@@ -70,7 +84,6 @@ Cypress.Commands.add('shouldRenderShowcase', ({ name, hightlight = false }) => {
     cy.getByDataCy('game-card').should('have.length.gt', 0)
   })
 })
-
 
 Cypress.Commands.add('getFields', (fields) => {
   fields.map(({ label }) => {
